@@ -1,6 +1,34 @@
 import React, { useState } from "react";
 
-function Form() {
+function Form({ onAdd }) {
+  const [text, setText] = useState("");
+
+  function ChangeValue(input) {
+    setText(input);
+  }
+
+  function AddToDo() {
+    if (text.trim()) {
+      onAdd(text);
+      setText("");
+    }
+  }
+  return (
+    <div>
+      <input
+        onChange={(e) => ChangeValue(e.target.value)}
+        value={text}
+        type="text"
+        placeholder="Skriv in din to-do uppgift"
+      ></input>
+      <button onClick={AddToDo}>Lägg till</button>
+    </div>
+  );
+}
+
+export default Form;
+
+/*function Form() {
   const [text, setText] = useState("");
   const [list, setList] = useState([]);
 
@@ -15,15 +43,13 @@ function Form() {
   console.log("render");
   return (
     <div>
-      <div>Form</div>
-
       <input
         onChange={(e) => ChangeValue(e.target.value)}
         value={text}
         type="text"
-        placeholder="Whats the task title?"
+        placeholder="Skriv in din to-do uppgift"
       ></input>
-      <button onClick={AddToDo}>Add</button>
+      <button onClick={AddToDo}>Lägg till</button>
       <ul>
         {list.map((l) => (
           <li>{l}</li>
@@ -33,4 +59,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default Form;*/
