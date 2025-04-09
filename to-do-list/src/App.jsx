@@ -1,20 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/form/Form";
-import Todoitem from "./components/to-do-item/Todoitem";
+import TodoList from "./components/to-do-list/Todolist";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
 
   function addTodo(text) {
     const newTodo = { id: Date.now(), text, completed: false };
     setTodos([...todos, newTodo]);
+    console.log(todos);
   }
+
+  function toggleComplete(id) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  }
+
+  function deleteTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
   return (
     <>
-      <h2>Min To-do lista</h2>
-      <Form onAdd={addTodo} />
-      <Todoitem todos={todos} />
+      <div className="listwrapping">
+        <h2>Min To-do lista</h2>
+        <Form onAdd={addTodo} />
+        <TodoList
+          todos={todos}
+          onToggleComplete={toggleComplete}
+          onDelete={deleteTodo}
+        />
+      </div>
     </>
   );
 }

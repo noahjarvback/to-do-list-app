@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Form.css";
 
 function Form({ onAdd }) {
   const [text, setText] = useState("");
@@ -7,7 +8,8 @@ function Form({ onAdd }) {
     setText(input);
   }
 
-  function AddToDo() {
+  function AddToDo(e) {
+    e.preventDefault();
     if (text.trim()) {
       onAdd(text);
       setText("");
@@ -15,13 +17,16 @@ function Form({ onAdd }) {
   }
   return (
     <div>
-      <input
-        onChange={(e) => ChangeValue(e.target.value)}
-        value={text}
-        type="text"
-        placeholder="Skriv in din to-do uppgift"
-      ></input>
-      <button onClick={AddToDo}>Lägg till</button>
+      <label className="label">Lägg till din todo</label>
+      <form onSubmit={AddToDo}>
+        <input
+          onChange={(e) => ChangeValue(e.target.value)}
+          value={text}
+          type="text"
+          placeholder="Skriv in din to-do uppgift"
+        ></input>
+        <button type="submit">Lägg till</button>
+      </form>
     </div>
   );
 }

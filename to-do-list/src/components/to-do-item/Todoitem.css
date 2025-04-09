@@ -1,0 +1,14 @@
+.completed {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: #888;
+}
+
+li {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: #2d7d80;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
