@@ -33,7 +33,7 @@ function App() {
   return (
     <>
       <div className="listwrapping">
-        <h2>Min To-do lista</h2>
+        <h2>Min to-do lista</h2>
         <Form onAdd={addTodo} />
         <TodoList
           todos={todos}
