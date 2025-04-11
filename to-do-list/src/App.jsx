@@ -12,7 +12,6 @@ function App() {
   function addTodo(text) {
     const newTodo = { id: Date.now(), text, completed: false };
     setTodos([...todos, newTodo]);
-    console.log(todos);
   }
 
   function toggleComplete(id) {
@@ -30,6 +29,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
+
   return (
     <>
       <div className="listwrapping">

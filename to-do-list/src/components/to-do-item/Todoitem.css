@@ -67,11 +67,6 @@ li {
   border: 1px solid black;
 }
 
-button {
-  background-color: #e33457;
-  color: white;
-}
-
 .button-container {
   display: flex;
   justify-content: flex-end;

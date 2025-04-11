@@ -2,7 +2,6 @@ import React from "react";
 import Todoitem from "../to-do-item/Todoitem";
 import "./Todolist.css";
 function TodoList({ todos, onToggleComplete, onDelete }) {
-  console.log(todos);
   return (
     <ul>
       {todos.map((todo) => (

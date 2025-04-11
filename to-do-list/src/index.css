@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 .listwrapping {
   background-color: #2d7d80;
   padding: 6em;
