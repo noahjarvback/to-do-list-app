@@ -17,6 +17,15 @@
   background-color: #2d7d80;
   padding: 6em;
   border-radius: 3em;
+
+  width: 100%;
+  max-width: 50em;
+  min-width: 50em;
+  margin: 2em auto;
+
+  overflow-y: auto;
+  word-break: break-word;
+  box-sizing: border-box;
 }
 
 a {

@@ -26,7 +26,7 @@ function Todoitem({ todo, onToggleComplete, onDelete }) {
             )}
           </button> */}
         <button onClick={() => onDelete(todo.id)}>
-          <FaTrash style={{ color: "red", fontSize: "22px" }} />
+          <FaTrash style={{ color: "red" }} />
         </button>
       </div>
     </li>
